@@ -10,14 +10,14 @@ module.exports = class extends Command {
     }
 
     async run(message, [user]) {
+         let person = message.mentions.users.first() || message.author
+
+       if(!person) return message.reply("Please ping user")
        Bots.find({
     botid: person.id
   }).sort([
     ['descending']
   ]).exec((err, res) => {
-          let person = message.mentions.users.first() || message.author
-
-       if(!person) return message.reply("Please ping user")
            let embed = new MessageEmbed()
             if (res.length === 0) return message.channel.send(`\`${person.tag}\` has no bots. Add one: <${process.env.DOMAIN}/add/>.`)
            for (i = 0; i < res.length; i++){
