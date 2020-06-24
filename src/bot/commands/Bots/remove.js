@@ -27,7 +27,7 @@ module.exports = class extends Command {
     }
 
     async run(message, [Member]) {
-        let member = message.guild.mentions.members.first()
+        let member = message.mentions.users.first()
         if (!member || !member.bot) return message.channel.send(`You didn't ping a bot to remove.`)
         let e = new MessageEmbed()
             .setTitle('Reasons')
