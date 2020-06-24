@@ -13,6 +13,6 @@ module.exports = class extends Command {
     async run(message, [user]) {
         if (!user || !user.bot) return message.channel.send(`Ping a **bot** to mark as nsfw.`);
         await Bots.updateOne({ botid: user.id }, {$set: { nsfw: false } })
-        message.channel.send(`👍 \`${user.tag}\` is now marked as NSFW`)
+        message.channel.send(`👍 \`${user.tag}\` is now not marked as NSFW`)
     }
 };
