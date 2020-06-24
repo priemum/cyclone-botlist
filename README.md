@@ -7,7 +7,6 @@ Discord Bot list
 
 
 # About
-This botlist is discontinued and no longer exists. Feel free to host your own instance of it.
 ![Front Page](/screenshots/front.png?raw=true "Front Page")
 ![Dark Theme](/screenshots/dark.png?raw=true "Dark Theme")
 ![Bot Page](/screenshots/bot.png?raw=true "Bot Page")
