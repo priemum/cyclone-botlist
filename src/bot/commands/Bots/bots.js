@@ -14,7 +14,7 @@ module.exports = class extends Command {
 
         let bots = await Bots.findOne({ 
             botid: person.id }, { _id: false })
-        bots = bots.filter(bot => bot.state !== "deleted" && bot.owners.includes(person.id));
+        bots = bots.cache.filter(bot => bot.state !== "deleted" && bot.owners.includes(person.id));
 
         if (bots.length === 0) return message.channel.send(`\`${person.tag}\` has no bots. Add one: <${process.env.DOMAIN}/add/>.`)
         var cont = ``
