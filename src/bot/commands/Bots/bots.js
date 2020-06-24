@@ -14,14 +14,14 @@ module.exports = class extends Command {
 
        if(!person) return message.reply("Please ping user")
        Bots.find({
-    botid: person.id
+    owners: person.id
   }).sort([
     ['descending']
   ]).exec((err, res) => {
            let embed = new MessageEmbed()
             if (res.length === 0) return message.channel.send(`\`${person.tag}\` has no bots. Add one: <${process.env.DOMAIN}/add/>.`)
            for (i = 0; i < res.length; i++){
-               embed.addField(`{i + 1}. <@${res.id}>`)
+               embed.addField(`{i + 1}. <@${res.botid}>`)
            }
            embed.setTitle(`${person.username}#${person.discriminator}'s bots`)
            embed.setColor(0x6b83aa)
