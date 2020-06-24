@@ -23,10 +23,10 @@ module.exports = class extends Command {
            for (i = 0; i < res.length; i++){
                embed.addField(`{i + 1}. <@${res.id}>`)
            }
-       })
            embed.setTitle(`${person.username}#${person.discriminator}'s bots`)
            embed.setColor(0x6b83aa)
         message.channel.send(embed)
+                  })
     }
 
 };
