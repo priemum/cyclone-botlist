@@ -21,7 +21,7 @@ module.exports = class extends Command {
            let embed = new MessageEmbed()
             if (res.length === 0) return message.channel.send(`\`${person.tag}\` has no bots. Add one: <${process.env.DOMAIN}/add/>.`)
            for (i = 0; i < res.length; i++){
-               embed.addField(`{i + 1}. <@${res.botid}>`)
+               embed.addField(`<@${res.botid}>`)
            }
            embed.setTitle(`${person.username}#${person.discriminator}'s bots`)
            embed.setColor(0x6b83aa)
