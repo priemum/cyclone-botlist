@@ -27,7 +27,8 @@ module.exports = class extends Command {
     }
 
     async run(message, [Member]) {
-        if (!Member || !Member.bot) return message.channel.send(`You didn't ping a bot to remove.`)
+        let member = message.guild.mentions.members.first()
+        if (!member || !member.bot) return message.channel.send(`You didn't ping a bot to remove.`)
         let e = new MessageEmbed()
             .setTitle('Reasons')
             .setColor(0x6b83aa)
