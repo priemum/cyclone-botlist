@@ -12,7 +12,6 @@ const reasons = {
     "6": `Your bot doesn't have a working help command or commands list`
 }
 var modLog;
-
 module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
@@ -32,7 +31,7 @@ module.exports = class extends Command {
         let e = new MessageEmbed()
             .setTitle('Reasons')
             .setColor(0x6b83aa)
-            .addField(`Removing bot`, `${Member}`)
+            .addField(`Removing bot`, `${member}`)
         let cont = ``;
         for (let k in reasons) {
             let r = reasons[k];
@@ -42,17 +41,16 @@ module.exports = class extends Command {
         e.setDescription(cont)
         message.channel.send(e);
         let filter = m => m.author.id === message.author.id;
-
         let collected = await message.channel.awaitMessages(filter, { max: 1, time: 20000, errors: ['time'] });
         let reason = collected.first().content
         let r = collected.first().content;
         if (parseInt(reason)) {
             r = reasons[reason]
-            if (!r) return message.channel.send("Inavlid reason number.")
+            if (!r) return message.channel.send("Invalid reason number.")
         }
 
         let bot = await Bots.findOne({ botid: Member.id }, { _id: false })
-        await Bots.updateOne({ botid: Member.id }, { $set: { state: "deleted" } })
+        await Bots.updateOne({ botid: member.id }, { $set: { state: "deleted" } })
 
         if (!bot) return message.channel.send(`Unknown Error. Bot not found.`)
         e = new MessageEmbed()
