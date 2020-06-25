@@ -9,7 +9,6 @@ Discord Bot list
 # About
 A bot list where you can find discord bots to spice up your server.
 ![Front Page](/screenshots/front.png?raw=true "Front Page")
-![Dark Theme](/screenshots/dark.png?raw=true "Dark Theme")
 ![Bot Page](/screenshots/bot.png?raw=true "Bot Page")
 
 
