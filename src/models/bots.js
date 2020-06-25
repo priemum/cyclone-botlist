@@ -45,18 +45,7 @@ const botsSchema = new mongoose.Schema({
   auth: {
     type: String
   },
-  servers: [
-    {
-      time: {
-        type: Date,
-        default: () => Date.now()
-      },
-      servers: {
-        type: Number,
-        default: 0
-      }
-    }
-  ],
+  servers: Number,
   nsfw: {
     type: Boolean,
     default: false
