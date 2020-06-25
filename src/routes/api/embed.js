@@ -30,7 +30,7 @@ route.get("/:id", async (req, res, next) => {
       .setTextAlign("left")
       .setTextSize(12);
     if (bot.servers, 140, 105);
-      .addText(`Prefix: ${bot.prefix}`, 140, 125)
+    img.addText(`Prefix: ${bot.prefix}`, 140, 125)
       .setTextSize(11)
       .addMultilineText(bot.description, 140, 145, 320, 15)
 
