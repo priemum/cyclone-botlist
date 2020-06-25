@@ -20,7 +20,7 @@ route.post('/:id', async (req, res) => {
     if (!bot.auth) return res.json({ success: "false", error: "Create a bot authorization token." });
     if (bot.auth !== auth) return res.json({ success: "false", error: "Incorrect authorization token." });
 
-    await Bots.updateOne({ botid: data.id }, { servers: { $push: {time: Date.now(), servers: count} }})
+    await Bots.updateOne({ botid: botid }, { servers: { $push: {time: Date.now(), servers: count} }})
     bot = await Bots.findOne({ botid }, { _id: false })
     res.json({ success: true, bot });
 });
