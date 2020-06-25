@@ -8,6 +8,7 @@ route.get("/", async (req, res, next) => {
         res.cookie("theme", "dark");
         return res.redirect(req.header('Referer') || '/');
     }
+    res.redirect(req.header('Referer') || '/');
 });
 
 module.exports = route;
