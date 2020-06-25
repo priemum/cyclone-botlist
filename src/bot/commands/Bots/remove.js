@@ -50,7 +50,10 @@ module.exports = class extends Command {
         }
 
         let bot = await Bots.findOne({ botid: Member.id }, { _id: false })
-        await Bots.findOneAndDelete({ botid: member.id })
+        await Bots.findOne({ botid: member.id}, (err , res) => {
+            res.state = 'deleted'
+            res.save()
+                           })
 
         if (!bot) return message.channel.send(`Unknown Error. Bot not found.`)
         e = new MessageEmbed()
