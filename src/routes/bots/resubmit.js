@@ -4,10 +4,11 @@ const Bots = require("@models/bots");
 const route = Router();
 
 route.get("/:id", async (req, res, next) => {
-    let clientid = req.params.id;
+        let clientid = req.params.id;
+    let bot2 = await Bots.findOne({ botid: clientid })
+     if (!bot2) return res.sendStatus(404);
+    if (bot2.state !== 'deleted') return res.sendStatus(404);
     let bot = await Bots.updateOne({ botid: clientid }, { $set: { state: "unverified" } })
-    if (!bot) return res.sendStatus(404);
-    if (bot.state !== 'deleted') return res.sendStatus(404);
     res.render("resubmit/index", { bot: bot });
 });
 
