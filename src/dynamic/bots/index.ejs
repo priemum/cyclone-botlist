@@ -63,8 +63,8 @@
             <span class="<%= isURL ? '' : 'markdown-body ' %>"> <%- desc %> </span>
         </div>
         <a href="<%= bot.invite ? bot.invite : `https://discordapp.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=0` class="small button">Invite</a>
-        <a href="/bots/edit/<%= bot.botid %>" class="small button">Edit Bot (Owner)</a>
-                <a href="/api/embed/<%= bot.botid %>" class="small button">Widget</a>
+        <a href=`/bots/edit/${bot.botid}` class="small button">Edit Bot (Owner)</a>
+                <a href= `/api/embed/${bot.botid}` class="small button">Widget</a>
         <a id="by" href="/user/<%= person.user.id %>">
         <img src="<%=person.user.tag != 'Unknown User'  ? person.user.displayAvatarURL() : '/assets/default-avatar.png' %>" height="30px" />
         <span class="navtext"><%=person.user.tag %></span>
