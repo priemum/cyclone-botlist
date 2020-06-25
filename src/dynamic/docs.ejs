@@ -61,7 +61,64 @@
        <li>Then click edit bot , scroll down , and you will find auth token</li>
        <li>store it and don't share , you will need it in the following steps</li>
        </ul>
-       <code>Use `code` in your Markdown file.</code>
+       <code>
+//////////////////////////////////////////////////////////////////////v12
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = "!"
+
+client.on('ready', () => {
+    console.log(`Logged in as ${client.user.username}`);
+let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch
+fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${<client>.user.id}`, {
+        method: "POST",
+        headers: {
+        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it
+        "Content-Type": "application/json"
+        },
+       body: JSON.stringify({"server_count": <client>.guilds.cache.size}) /////////////////////////////////post real server count not fake we will know
+      }).then(response => response.text())
+  .then(console.log)
+  .catch(console.error)
+})
+
+
+client.on("message", async message => {
+    let args = message.content.substring(prefix.length).split(" ");
+    if(message.content.startsWith(prefix +"ping")){
+    message.channel.send("Pong! " + client.ws.ping + "ms")
+       }
+})
+client.login("token")
+//////////////////////////////////////////////////////////////////////v11
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = "!"
+
+client.on('ready', () => {
+    console.log(`Logged in as ${client.user.username}`);
+let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch
+fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${<client>.user.id}`, {
+        method: "POST",
+        headers: {
+        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it
+        "Content-Type": "application/json"
+        },
+       body: JSON.stringify({"server_count": <client>.guilds.size}) /////////////////////////////////post real server count not fake we will know
+      }).then(response => response.text())
+  .then(console.log)
+  .catch(console.error)
+})
+
+
+client.on("message", async message => {
+    let args = message.content.substring(prefix.length).split(" ");
+    if(message.content.startsWith(prefix +"ping")){
+    message.channel.send("Pong! " + client.ws.ping + "ms")
+       }
+})
+client.login("token")
+  </code>
     </div>
 
 </body>
