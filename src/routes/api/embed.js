@@ -29,8 +29,7 @@ route.get("/:id", async (req, res, next) => {
       .addCircularImage(avatar, 80, 135, 40, 40, 5, true)
       .setTextAlign("left")
       .setTextSize(12);
-    if (bot.servers[bot.servers.length-1]) img.addText(`${bot.servers[bot.servers.length-1].servers} servers`, 140, 105);
-    img
+    if (bot.servers`, 140, 105);
       .addText(`Prefix: ${bot.prefix}`, 140, 125)
       .setTextSize(11)
       .addMultilineText(bot.description, 140, 145, 320, 15)
