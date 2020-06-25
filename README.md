@@ -24,7 +24,3 @@ A bot list where you can find discord bots to spice up your server.
 
 # Contributing
 You want to contribute? Go ahead and make a pull request and I'll look into it as soon as I can. 
-
-# Copying
-No problem, just check the [`LICENSE.md`](LICENSE.md).
-Check the [wiki](https://github.com/Ankrad/Discord-Bot-List/wiki) for a setup guide.
