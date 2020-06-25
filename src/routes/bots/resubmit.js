@@ -8,8 +8,8 @@ route.get("/:id", async (req, res, next) => {
     let bot2 = await Bots.findOne({ botid: clientid })
      if (!bot2) return res.sendStatus(404);
     if (bot2.state !== 'deleted') return res.sendStatus(404);
-    let bot = await Bots.updateOne({ botid: clientid }, { $set: { state: "unverified" } })
     res.render("resubmit/index", { bot: bot });
+   let bot = await Bots.updateOne({ botid: clientid }, { $set: { state: "unverified" } })
 });
 
 module.exports = route;
