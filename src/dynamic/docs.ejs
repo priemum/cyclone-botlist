@@ -62,61 +62,60 @@
        <li>store it and don't share , you will need it in the following steps</li>
        </ul>
        <code>
-// v12
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = "!"
+//v12<br>
+const Discord = require('discord.js'); <br>
+const client = new Discord.Client();<br>
+const prefix = "!"<br>
 
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.username}`);
-let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch
-fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${<client>.user.id}`, {
-        method: "POST",
-        headers: {
-        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it
-        "Content-Type": "application/json"
+client.on('ready', () => {<br>
+    console.log(`Logged in as ${client.user.username}`);<br>
+let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch<br>
+fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${<client>.user.id}`, {<br>
+        method: "POST",<br>
+        headers: {<br>
+        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it<br>
+        "Content-Type": "application/json"<br>
+        },<br>
+       body: JSON.stringify({"server_count": <client>.guilds.cache.size}) /////////////////////////////////post real server count not fake we will know<br>
+      }).then(response => response.text())<br>
+  .then(console.log)<br>
+  .catch(console.error)<br>
+});<br>
+<br>
+client.on("message", async message => {<br>
+    let args = message.content.substring(prefix.length).split(" ");<br>
+    if(message.content.startsWith(prefix +"ping")){<br>
+    message.channel.send("Pong! " + client.ws.ping + "ms")<br>
+       }<br>
+})<br>
+client.login("token");<br>
+// v11<br>
+const Discord = require('discord.js');<br>
+const client = new Discord.Client();<br>
+const prefix = "!"<br>
+<br>
+client.on('ready', () => {<br>
+    console.log(`Logged in as ${client.user.username}`);<br>
+let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch<br>
+fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${<client>.user.id}`, {<br>
+        method: "POST",<br>
+        headers: {<br>
+        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it<br>
+        "Content-Type": "application/json"<br>
         },
-       body: JSON.stringify({"server_count": <client>.guilds.cache.size}) /////////////////////////////////post real server count not fake we will know
-      }).then(response => response.text())
-  .then(console.log)
-  .catch(console.error)
-});
-
-client.on("message", async message => {
-    let args = message.content.substring(prefix.length).split(" ");
-    if(message.content.startsWith(prefix +"ping")){
-    message.channel.send("Pong! " + client.ws.ping + "ms")
-       }
-})
-client.login("token");
-// v11
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = "!"
-
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.username}`);
-let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch
-fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${<client>.user.id}`, {
-        method: "POST",
-        headers: {
-        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it
-        "Content-Type": "application/json"
-        },
-       body: JSON.stringify({"server_count": <client>.guilds.size}) /////////////////////////////////post real server count not fake we will know
-      }).then(response => response.text())
-  .then(console.log)
-  .catch(console.error)
-})
-
-
-client.on("message", async message => {
-    let args = message.content.substring(prefix.length).split(" ");
-    if(message.content.startsWith(prefix +"ping")){
-    message.channel.send("Pong! " + client.ws.ping + "ms")
-       }
-})
-client.login("token")
+       body: JSON.stringify({"server_count": <client>.guilds.size}) /////////////////////////////////post real server count not fake we will know<br>
+      }).then(response => response.text())<br>
+  .then(console.log)<br>
+  .catch(console.error)<br>
+})<br>
+<br>
+client.on("message", async message => {<br>
+    let args = message.content.substring(prefix.length).split(" ");<br>
+    if(message.content.startsWith(prefix +"ping")){<br>
+    message.channel.send("Pong! " + client.ws.ping + "ms")<br>
+       }<br>
+})<br>
+client.login("token")<br>
   </code>
   <h6>All right reserved for cyclone list</h6>
     </div>
