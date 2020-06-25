@@ -17,7 +17,6 @@ module.exports = class extends Command {
         embed.addField("Commands", "c!ping ``Shows bot latency``\nc!widget <@bot> ``Shows bot widget(Embed)``\nc!botinfo <@bot> ``Shows bot info``\nc!count")
           }
         embed.setFooter("Cyclone Bot List ™ || Help Command")
+        message.channel.send(embed)
         }
-    message.channel.send(embed)
-    }
 };
