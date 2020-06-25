@@ -8,13 +8,12 @@ route.get("/", async (req, res, next) => {
         res.cookie("theme", "dark");
         return res.redirect(req.header('Referer') || '/');
     } 
-     if (theme === "dark") {
-             res.redirect(req.header('Referer') || '/');
-        return res.cookie("theme", "light")
-    }
     if (theme === "light") {
             res.redirect(req.header('Referer') || '/');
         return res.cookie("theme", "dark")
+    }else if (theme === "dark") {
+             res.redirect(req.header('Referer') || '/');
+        return res.cookie("theme", "light")
     }
 });
 
