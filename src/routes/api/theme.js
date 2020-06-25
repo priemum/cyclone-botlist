@@ -7,14 +7,12 @@ route.get("/", async (req, res, next) => {
     if (!theme) {
         res.cookie("theme", "dark");
         return res.redirect(req.header('Referer') || '/');
-    } 
-    if (theme === "light") {
-            res.redirect(req.header('Referer') || '/');
-        return res.cookie("theme", "dark")
+    }else if (theme === "light") {
+        res.cookie("theme", "dark")
     }else if(theme === "dark"){
-         res.redirect(req.header('Referer') || '/');
-        return res.cookie("theme", "light")
+        res.cookie("theme", "light")
     }
+             res.redirect(req.header('Referer') || '/');
 });
 
 module.exports = route;
