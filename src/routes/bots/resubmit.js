@@ -10,8 +10,8 @@ route.get("/:id", async (req, res, next) => {
        if (res.state !== "deleted") return res.sendStatus(404);
         res.state = 'unverified'
         res.save
+                res.render("resubmit/index", { bot: res });
     })
-          res.render("resubmit/index", { bot: bot });
 });
 
 module.exports = route;
