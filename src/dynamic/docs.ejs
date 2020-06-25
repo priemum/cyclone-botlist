@@ -62,34 +62,34 @@
        <li>store it and don't share , you will need it in the following steps</li>
        </ul>
        <code>
-//////////////////////////////////////////////////////////////////////v12
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const prefix = "!"
+//////////////////////////////////////////////////////////////////////v12\n
+const Discord = require('discord.js');\n
+const client = new Discord.Client();\n
+const prefix = "!"\n
 
-client.on('ready', () => {
-    console.log(`Logged in as ${client.user.username}`);
-let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch
-fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${<client>.user.id}`, {
-        method: "POST",
-        headers: {
-        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it
-        "Content-Type": "application/json"
-        },
-       body: JSON.stringify({"server_count": <client>.guilds.cache.size}) /////////////////////////////////post real server count not fake we will know
-      }).then(response => response.text())
-  .then(console.log)
-  .catch(console.error)
-})
+client.on('ready', () => {\n
+    console.log(`Logged in as ${client.user.username}`);\n
+let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch\n
+fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${<client>.user.id}`, {\n
+        method: "POST",\n
+        headers: {\n
+        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it\n
+        "Content-Type": "application/json"\n
+        },\n
+       body: JSON.stringify({"server_count": <client>.guilds.cache.size}) /////////////////////////////////post real server count not fake we will know\n
+      }).then(response => response.text())\n
+  .then(console.log)\n
+  .catch(console.error)\n
+})\n
 
 
-client.on("message", async message => {
-    let args = message.content.substring(prefix.length).split(" ");
-    if(message.content.startsWith(prefix +"ping")){
-    message.channel.send("Pong! " + client.ws.ping + "ms")
-       }
-})
-client.login("token")
+client.on("message", async message => {\n
+    let args = message.content.substring(prefix.length).split(" ");\n
+    if(message.content.startsWith(prefix +"ping")){\n
+    message.channel.send("Pong! " + client.ws.ping + "ms")\n
+       }\n
+})\n
+client.login("token")\n
 //////////////////////////////////////////////////////////////////////v11
 const Discord = require('discord.js');
 const client = new Discord.Client();
