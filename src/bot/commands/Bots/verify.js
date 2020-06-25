@@ -31,7 +31,7 @@ module.exports = class extends Command {
             owner.roles.add(message.guild.roles.cache.get(process.env.BOT_DEVELOPER_ROLE_ID))
         })
         message.guild.members.fetch(message.client.users.cache.find(u => u.id === bot.botid)).then(bot => {
-            bot.roles.set([process.env.BOT_ROLE_ID, process.env.VERIFIED_ROLE_ID, process.env.UNMUTED_ROLE_ID]);
+            bot.roles.set([process.env.BOT_ROLE_ID]);
         })
         message.channel.send(`Verified \`${bot.username}\``);
     }
