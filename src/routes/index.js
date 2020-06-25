@@ -8,6 +8,7 @@ const join = require("@routes/join");
 const login = require("@routes/login");
 const logout = require("@routes/logout");
 const user = require("@routes/user");
+const docs = require("@routes/docs");
 const me = require("@routes/me");
 
 const route = Router();
@@ -20,6 +21,7 @@ route.use("/join", join);
 route.use("/logout", logout);
 route.use("/login", login);
 route.use("/user", user);
+route.use("/docs", docs);
 route.use("/me", me);
 
 
