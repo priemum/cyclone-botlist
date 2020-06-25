@@ -7,6 +7,10 @@ route.get("/", async (req, res, next) => {
     if (!theme) {
         res.cookie("theme", "dark");
         return res.redirect(req.header('Referer') || '/');
+    }else if(theme === 'dark'){
+        res.cookie("theme", "light");
+    }else if(theme === 'light'){
+        res.cookie("theme", "dark");
     }
     res.redirect(req.header('Referer') || '/');
 });
