@@ -73,7 +73,7 @@
         <div id="long">
             <span class="<%= isURL ? '' : 'markdown-body ' %>"> <%- desc %> </span>
         </div>
-        <div id="edit" class="linkx" style="display: none;"> <a target="_blank" href="/edit/<%= bot.botid %>">Edit</a> </div>
+         <a class="navtext active-navtext" target="_blank" href="#">Edit <%= bot.username %></a>
         <a id="by" href="/user/<%= person.user.id %>">
         <img src="<%=person.user.tag != 'Unknown User'  ? person.user.displayAvatarURL() : '/assets/default-avatar.png' %>" height="30px" />
         <span class="navtext"><%=person.user.tag %></span>
