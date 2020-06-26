@@ -17,6 +17,7 @@
     <link href="/theme" rel="stylesheet">
     <script src="/bots/script.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/vote.js"></script>
     <title>Cyclone Bot List ™</title>
 </head>
 
@@ -66,26 +67,8 @@
         <a class="small button" target="_blank" href="<%= bot.invite ? bot.invite : `https://discordapp.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=0` %> ">Invite</a>
         <a class="small button" target="_blank" href="<%= `/bots/edit/${bot.botid}` %>">Edit Bot (Owner)</a>
         <a class="small button" target="_blank" href="<%= `/api/embed/${bot.botid}` %>">Widget</a>
-         <a class="small button" onclick="votes();">Vote</a>
-         <script>
-         function votes(){
-         bot.findOne({
-         botid: bot.botid}, (err , res) => {
-         if(!res){
-         const newvote = new BLACKBOT({
-                votes: 1,
-                botid: bot.botid,
-            })
-            newvote.save().catch(err => console.log(err));
-            alert("Success voted for this bot")
-         }else{
-         res.votes = res.votes- + -1
-         res.save()
-         alert("Success voted for this bot")
-         }
-         })
-         }
-         </script>
+         <a class="small button" onclick="votes()">Vote</a>
+
         <a id="by" href="/user/<%= person.user.id %>">
         <img src="<%=person.user.tag != 'Unknown User'  ? person.user.displayAvatarURL() : '/assets/default-avatar.png' %>" height="30px" />
         <span class="navtext"><%=person.user.tag %></span>
