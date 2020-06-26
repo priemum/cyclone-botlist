@@ -49,8 +49,8 @@ let e = new MessageEmbed()
 .setColor(0x26ff00)
 modLog.send(e);
 modLog.send(`${message.author}`).then(m => { m.delete() });
-    })
-    async init() {
-        modLog = this.client.channels.cache.get(process.env.MOD_LOG_ID);
-    }
-}
+ async init() {
+       modLog = this.client.channels.cache.get(process.env.MOD_LOG_ID);
+   }
+        })
+};
