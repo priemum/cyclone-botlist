@@ -59,7 +59,6 @@ route.get('/:id', async (req, res, next) => {
     } else if (bot.long) desc = converter.makeHtml(bot.long);
     else desc = bot.description;
     let data = {
-        vote,
         bot,
         person: person,
         bcolour: b,
