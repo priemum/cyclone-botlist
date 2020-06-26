@@ -2,6 +2,7 @@ const Bots = require("@models/bots");
 
 module.exports = async () => {
 const bots = await Bots.find({
-  state: "verified"}, (err, res) => {
-})
+  state: "verified"
+}).sort([['descending']]).exec((err, res) => {
+}, { _id: false, auth: false })
 };
