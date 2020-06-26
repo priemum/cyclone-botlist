@@ -1,13 +1,12 @@
 function votes() {
-    if (!document.getElementById('botid').value)
-        return flash(document.getElementById('botid'))
+alert("Success voted for bot!")
    
 
     let data = {
         votes: 1,
     };
 
-    fetch("/vote", {
+    fetch("/bots/vote", {
         method: 'POST',
         body: JSON.stringify(data),
         headers:{
