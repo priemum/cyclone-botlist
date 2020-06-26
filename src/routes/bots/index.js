@@ -25,7 +25,6 @@ route.get('/:id', async (req, res, next) => {
             botid: req.params.id
         })
         newvote.save()
-        vote.votes = 0
     }
     if (!bot) return res.sendStatus(404);
     if (bot.state === "deleted") return res.sendStatus(404);
