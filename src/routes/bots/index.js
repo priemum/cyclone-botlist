@@ -27,7 +27,11 @@ route.get('/:id', async (req, res, next) => {
         newvote.save()
     }
     if(vote.votes === undefined){
-        vote.votes = 0
+        let newvote = new VoteBots({
+            votes: 0,
+            botid: req.params.id
+        })
+        newvote.save()
     }
     if (!bot) return res.sendStatus(404);
     if (bot.state === "deleted") return res.sendStatus(404);
