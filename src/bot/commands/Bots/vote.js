@@ -1,6 +1,7 @@
 const { Command } = require('klasa');
 const { MessageEmbed } = require('discord.js');
 const Bots = require("@models/bots");
+const BotOnce = require("@models/voted");
 var modLog;
 
 module.exports = class extends Command {
@@ -14,6 +15,18 @@ module.exports = class extends Command {
 
     async run(message, [user]) {
         if (!user || !user.bot) return message.channel.send(`Ping a **bot**.`);
+                BotOnce.findOne({
+            botid: user.id,
+            voter: message.author.id}, (err , res) => {
+            if(!res){
+                const newvoted = new BotOnce({
+                     botid: user.id,
+                     voter: message.author.id
+                })
+                newvoted.save()
+            }else{
+                return message.reply("You already voted for that bot")
+            }
         let bot = await Bots.findOne({botid: user.id}, { _id: false })
         Bots.findOne({
           botid: user.id}, (err, res) => {
@@ -40,4 +53,5 @@ module.exports = class extends Command {
     async init() {
         modLog = this.client.channels.cache.get(process.env.MOD_LOG_ID);
     }
+                })
 };
