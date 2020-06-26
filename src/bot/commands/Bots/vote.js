@@ -1,6 +1,6 @@
 const { Command } = require('klasa');
 const { MessageEmbed } = require('discord.js');
-const Bots = require("@models/vote");
+const Bots = require("@models/bots");
 var modLog;
 
 module.exports = class extends Command {
