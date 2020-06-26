@@ -6,7 +6,7 @@ alert("Success voted for bot!")
         votes: 1,
     };
 
-    fetch("/bots/vote", {
+    fetch("/vote", {
         method: 'POST',
         body: JSON.stringify(data),
         headers:{
