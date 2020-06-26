@@ -5,4 +5,5 @@ const bots = await Bots.find({
   state: "verified"
 }).sort([['descending']]).exec((err, res) => {
 })
+bots.forEach(bot => bot)
 };
