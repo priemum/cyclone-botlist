@@ -6,7 +6,7 @@ const resubmit = require("@routes/bots/resubmit");
 const search = require("@routes/bots/search");
 const edit = require("@routes/bots/edit");
 const Bots = require("@models/bots");
-const VOTE = require("@models/vote");
+const botvotes = require("@models/vote");
 
 const route = Router();
 const converter = new showdown.Converter();
@@ -18,9 +18,9 @@ route.use("/edit", edit);
 
 route.get('/:id', async (req, res, next) => {
     let bot = await Bots.findOne({botid: req.params.id}, { _id: false, auth: false })
-    let vote = await VOTE.findOne({botid: req.params.id}, { _id: false, auth: false })
+    let vote = await botvotes.findOne({botid: req.params.id}, { _id: false, auth: false })
     if (!vote){
-        let newvote = new VOTE({
+        let newvote = new botvotes({
             votes: 1,
             botid: req.params.id
         })
@@ -68,6 +68,7 @@ route.get('/:id', async (req, res, next) => {
     } else if (bot.long) desc = converter.makeHtml(bot.long);
     else desc = bot.description;
     let data = {
+        vote,
         bot,
         person: person,
         bcolour: b,
