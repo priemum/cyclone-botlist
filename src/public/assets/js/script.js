@@ -46,7 +46,7 @@ function loadMore(res) {
 
         let name = document.createElement("h2")
         name.classList.add('title')
-        name.innerHTML = bot.username + "⬆️ [ 000 ]"
+        name.innerHTML = bot.username
         outer.appendChild(name)
 
         let p = document.createElement("p")
