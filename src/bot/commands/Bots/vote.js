@@ -7,7 +7,6 @@ var modLog;
 module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
-            permissionLevel: 8,
             usage: '[User:user]',
             aliases: ['v']
         });
