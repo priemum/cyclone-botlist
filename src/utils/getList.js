@@ -1,7 +1,7 @@
 const Bots = require("@models/bots");
 
 module.exports = async () => {
-    const bots = await Bots.find({
+    Bots.find({
         state: "verified"
     }).sort([
     ['descending']
