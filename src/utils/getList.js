@@ -1,6 +1,5 @@
 const Bots = require("@models/bots");
 
 module.exports = async () => {
-const bots = await Bots.find({
-    state: "verified"}, { _id: false, auth: false })
+const bots = await Bots.find({}, { _id: false, auth: false })
 };
