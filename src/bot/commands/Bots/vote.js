@@ -14,10 +14,10 @@ module.exports = class extends Command {
     }
 
     async run(message, [user]) {
-        if (!user || !user.bot) return message.channel.send(`Ping a **bot**.`);
+        if (!user || !user.bot) return message.channel.send(`Ping a **bot** to vote.`);
                 BotOnce.findOne({
             botid: user.id,
-            voter: message.author.id}, (err , res) => {
+            voter: message.author.id}, async (err , res) => {
             if(!res){
                 const newvoted = new BotOnce({
                      botid: user.id,
