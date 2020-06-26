@@ -6,7 +6,6 @@ const resubmit = require("@routes/bots/resubmit");
 const search = require("@routes/bots/search");
 const edit = require("@routes/bots/edit");
 const Bots = require("@models/bots");
-const VoteBots = require("@models/vote.js");
 
 const route = Router();
 const converter = new showdown.Converter();
@@ -18,15 +17,6 @@ route.use("/edit", edit);
 
 route.get('/:id', async (req, res, next) => {
     let bot = await Bots.findOne({botid: req.params.id}, { _id: false, auth: false })
-    let vote = await VoteBots.findOne({botid: req.params.id}, { _id: false, auth: false })
-    if (!vote){
-        let newvote = new VoteBots({
-            votes: 0,
-            botid: req.params.id
-        })
-        newvote.save()
-        res.redirect(`/bots/${req.params.id}`)
-    }
     if (!bot) return res.sendStatus(404);
     if (bot.state === "deleted") return res.sendStatus(404);
     let person;
