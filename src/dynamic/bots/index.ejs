@@ -67,7 +67,7 @@
         <a class="small button" target="_blank" href="<%= bot.invite ? bot.invite : `https://discordapp.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=0` %> ">Invite</a>
         <a class="small button" target="_blank" href="<%= `/bots/edit/${bot.botid}` %>">Edit Bot (Owner)</a>
         <a class="small button" target="_blank" href="<%= `/api/embed/${bot.botid}` %>">Widget</a>
-        <a href="/bots/vote/<%= bot.botid %>/" class="small button">Vote bot</a>
+        <a href="/bots/vote/" class="small button">Vote bot</a>
 
         <a id="by" href="/user/<%= person.user.id %>">
         <img src="<%=person.user.tag != 'Unknown User'  ? person.user.displayAvatarURL() : '/assets/default-avatar.png' %>" height="30px" />
