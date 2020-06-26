@@ -1,18 +1,31 @@
-const bot = require("@models/vote")
-function votes(){
-         bot.findOne({
-         botid: bot.botid}, (err , res) => {
-         if(!res){
-         const newvote = new BLACKBOT({
+const { Router } = require("express");
+const { getUser } = require('@utils/discordApi')
+const Bots = require("@models/bots");
+const Votes = require("@models/vote");
+const route = Router();
+
+route.get("/:id", async (req, res, next) => {
+    let bot = await Bots.findOne({
+    botid: req.params.id}, (err , res) => {
+    if(!res){
+    return res.sendStatus(404);
+    }else{
+    Votes.findOne({
+    botid: req.params.id}, (err , vote) => {
+    if(!vote){
+    const votess = new Votes({
                 votes: 1,
-                botid: bot.botid,
+                botid: req.params.id,
             })
-            newvote.save().catch(err => console.log(err));
-            alert("Success voted for this bot")
-         }else{
-         res.votes = res.votes- + -1
-         res.save()
-         alert("Success voted for this bot")
-         }
-   })
-}
+            votess.save().catch(err => console.log(err));
+    }else{
+    vote.votes = vote.votes- + -1
+    vote.save()
+    }
+    })
+    }
+    })
+    res.render("/", { bot: bot });
+});
+
+module.exports = route;
