@@ -1,1 +1,1 @@
-fetch(`${window.location.origin}/api/bots/vote`);
+fetch(`${window.location.origin}/vote`);
