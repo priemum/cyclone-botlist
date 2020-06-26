@@ -5,6 +5,6 @@ module.exports = async () => {
   }).sort([
     ['money', 'descending']
   ]).exec((err ,res) => {
-    return res.filter(bot => bot.state != "deleted")
+    res.filter(bot => bot.state != "deleted")
   }, { _id: false, auth: false })
 };
