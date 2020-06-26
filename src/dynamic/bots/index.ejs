@@ -59,14 +59,34 @@
             <%= bot.description %>
         </div>
         <div class="right" style="margin-top: 10px;"><strong>Prefix: </strong><code id="prefix"><%= bot.prefix %></code></div>
-        <div class="right" style="margin-top: 10px;"><strong>Votes: </strong><code> ⬆️ 000 </code></div>
+        <div class="right" style="margin-top: 10px;"><strong>Votes: </strong><code><%= bot.votes %></code></div>
         <div id="long">
             <span class="<%= isURL ? '' : 'markdown-body ' %>"> <%- desc %> </span>
         </div>
         <a class="small button" target="_blank" href="<%= bot.invite ? bot.invite : `https://discordapp.com/oauth2/authorize?client_id=${bot.botid}&scope=bot&permissions=0` %> ">Invite</a>
         <a class="small button" target="_blank" href="<%= `/bots/edit/${bot.botid}` %>">Edit Bot (Owner)</a>
         <a class="small button" target="_blank" href="<%= `/api/embed/${bot.botid}` %>">Widget</a>
-         <a class="small button" onclick=alert("Still on beta test!")>Vote</a>
+         <a class="small button" onclick="votes();">Vote</a>
+         <script>
+         function votes(){
+         let Bots = require("@models/vote.js")
+         Bots.findOne({
+         botid: Bots.botid}, (err , res) => {
+         if(!res){
+         const newvote = new BLACKBOT({
+                votes: 1,
+                botid: bot.botid,
+            })
+            newvote.save().catch(err => console.log(err));
+            alert("Success voted for this bot")
+         }else{
+         res.votes = res.votes- + -1
+         res.save()
+         alert("Success voted for this bot")
+         }
+         })
+         }
+         </script>
         <a id="by" href="/user/<%= person.user.id %>">
         <img src="<%=person.user.tag != 'Unknown User'  ? person.user.displayAvatarURL() : '/assets/default-avatar.png' %>" height="30px" />
         <span class="navtext"><%=person.user.tag %></span>
