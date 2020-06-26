@@ -1,7 +1,7 @@
 const Bots = require("@models/bots");
 
 module.exports = async () => {
-  const bots = await Bots.find({
+  await Bots.find({
   }).sort([
     ['money', 'descending']
   ]).exec((err ,res) => {
