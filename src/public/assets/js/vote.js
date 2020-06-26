@@ -25,4 +25,3 @@ function flash(element) {
         element.style.border = "1px solid #888";
     }, 600)
 }
-})
