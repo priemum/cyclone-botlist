@@ -14,7 +14,7 @@ module.exports = class extends Command {
 
     async run(message, [user]) {
         if (!user || !user.bot) return message.channel.send(`Ping a **bot**.`);
-        let bot = await BotsCheck.findOne({botid: user.id}, { _id: false })
+        let bot = await Bots.findOne({botid: user.id}, { _id: false })
         Bots.findOne({
           botid: user.id}, (err, res) => {
             if(!res){
