@@ -55,11 +55,11 @@
             <%= bot.username %>
         </h2>
         <span class="right"><%= bot.servers ? bot.servers + " Servers" : "" %></span>
+        <span class="right"><%= vote.votes ? vote.votes + " Votes" : "" %></span>
         <div class="right" style="margin-top: 20px;">
             <%= bot.description %>
         </div>
         <div class="right" style="margin-top: 10px;"><strong>Prefix: </strong><code id="prefix"><%= bot.prefix %></code></div>
-        <div class="right" style="margin-top: 10px;"><strong>Votes: </strong><code><%= vote.votes %></code></div>
         <div id="long">
             <span class="<%= isURL ? '' : 'markdown-body ' %>"> <%- desc %> </span>
         </div>
