@@ -69,9 +69,8 @@
          <a class="small button" onclick="votes();">Vote</a>
          <script>
          function votes(){
-         let Bots = require("@models/vote.js")
-         Bots.findOne({
-         botid: Bots.botid}, (err , res) => {
+         bot.findOne({
+         botid: bot.botid}, (err , res) => {
          if(!res){
          const newvote = new BLACKBOT({
                 votes: 1,
