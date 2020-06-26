@@ -35,12 +35,12 @@ module.exports = class extends Command {
                 botid: user.id,
             })
             newvotes.save().catch(err => console.log(err));
-            message.channel.send("Success voted for " + user.username)
+            return message.channel.send("Success voted for " + user.username)
           }else{
             res.votes = res.votes- + -1
             res.save()
           }
-          message.channel.send("Success voted for " + user.username)
+          return message.channel.send("Success voted for " + user.username)
         })
         let e = new MessageEmbed()
             .setTitle('Vote Message')
