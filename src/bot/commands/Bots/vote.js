@@ -16,6 +16,9 @@ module.exports = class extends Command {
 
     async run(message, [user]) {
         if (!user || !user.bot) return message.channel.send(`Ping a **bot**.`);
+        let bot = BotsCheck.findOne({
+            botid: user.id}, (err ,res) => {
+        })
        BotsCheck.findOne({ 
          botid: user.id }, (err ,res) => {
          if(!res){
@@ -43,6 +46,7 @@ module.exports = class extends Command {
             .setTitle('Vote Message')
             .addField(`Bot`, `<@${user.id}>`, true)
             .addField("Voter", message.author, true)
+            .setThumbnail(bot.logo)
             .setTimestamp()
             .setColor(0x26ff00)
         modLog.send(e);
