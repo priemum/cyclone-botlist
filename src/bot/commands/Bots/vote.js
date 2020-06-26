@@ -32,7 +32,8 @@ Bots.findOne({
 botid: user.id}, (err, res) => {
 if(!res){
 return message.reply("Not Exists bot!")
-}else if(res.state == 'unverified'){
+} 
+if(res.state == 'unverified'){
       return message.reply("That bot not verified to recieve votes!")
 }
 res.votes = res.votes- + -1
@@ -48,8 +49,8 @@ let e = new MessageEmbed()
 .setColor(0x26ff00)
 modLog.send(e);
 modLog.send(`${message.author}`).then(m => { m.delete() });
-})
     async init() {
-modLog = this.client.channels.cache.get(process.env.MOD_LOG_ID);
-}
+        modLog = this.client.channels.cache.get(process.env.MOD_LOG_ID);
+    }
+})
 }
